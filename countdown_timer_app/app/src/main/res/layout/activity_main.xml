@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout 
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/primaryBackground">
+
+    <!-- Visual Countdown Display (Large, Accent Color, Centered) -->
+    <TextView
+        android:id="@+id/tvCountdownTimer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="00:00:00"
+        android:textColor="@color/accent"
+        android:textSize="56sp"
+        android:textStyle="bold"
+        android:gravity="center"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/groupInput"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintVertical_chainStyle="packed"
+        app:layout_constraintVertical_bias="0.3"
+        android:padding="32dp"
+        />
+
+    <!-- Group for Inputs (DateTime or Duration) -->
+    <androidx.constraintlayout.widget.Group
+        android:id="@+id/groupInput"
+        app:constraint_referenced_ids="inputTabLayout,inputDateTime,inputDuration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/tvCountdownTimer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="visible" />
+
+    <!-- Tab selection: DateTime vs Duration -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/inputTabLayout"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:tabTextColor="@color/secondary"
+        app:tabSelectedTextColor="@color/accent"
+        app:tabIndicatorColor="@color/accent"
+        app:layout_constraintTop_toBottomOf="@id/tvCountdownTimer"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:background="@color/secondaryBackground"
+        />
+
+    <!-- Date/Time Picker Layout -->
+    <LinearLayout
+        android:id="@+id/inputDateTime"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/inputTabLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/btnPickDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick Date"
+            style="@style/BigAccentButton" />
+
+        <Space android:layout_width="16dp" android:layout_height="wrap_content"/>
+
+        <Button
+            android:id="@+id/btnPickTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Pick Time"
+            style="@style/BigAccentButton" />
+
+    </LinearLayout>
+
+    <!-- Duration Picker Layout -->
+    <LinearLayout
+        android:id="@+id/inputDuration"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:paddingTop="24dp"
+        app:layout_constraintTop_toBottomOf="@id/inputTabLayout"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:visibility="gone">
+
+        <NumberPicker
+            android:id="@+id/npHour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="h"
+            android:textColor="@color/secondary"
+            android:textSize="20sp" />
+
+        <NumberPicker
+            android:id="@+id/npMinute"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="m"
+            android:textColor="@color/secondary"
+            android:textSize="20sp" />
+
+        <NumberPicker
+            android:id="@+id/npSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="s"
+            android:textColor="@color/secondary"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+
+    <!-- Control Buttons (Bottom, Large, Easy to Tap) -->
+    <LinearLayout
+        android:id="@+id/llControls"
+        android:orientation="horizontal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="18dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <Button
+            android:id="@+id/btnStart"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:text="Start"
+            style="@style/BigAccentButton"
+            />
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnReset"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:text="Reset"
+            style="@style/BigAccentButton"
+            />
+
+        <Space
+            android:layout_width="24dp"
+            android:layout_height="wrap_content" />
+
+        <Button
+            android:id="@+id/btnStop"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="56dp"
+            android:text="Stop"
+            style="@style/BigAccentButton"
+            />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

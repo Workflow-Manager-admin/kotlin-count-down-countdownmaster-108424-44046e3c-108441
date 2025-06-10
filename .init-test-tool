@@ -1,0 +1,4 @@
+{
+    "command": "./gradlew test",
+    "working_directory": "/home/kavia/workspace/code-generation/countdownmaster-108424-44046e3c/countdown_timer_app"
+}

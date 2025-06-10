@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="primaryBackground">#222831</color> <!-- App background -->
+    <color name="secondaryBackground">#393E46</color> <!-- Input fields background -->
+    <color name="accent">#00ADB5</color> <!-- Accent for timer & buttons -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="secondary">#B0B0B0</color> <!-- Secondary text (for icon, small text) -->
+</resources>

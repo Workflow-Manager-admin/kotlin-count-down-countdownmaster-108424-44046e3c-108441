@@ -1,0 +1,14 @@
+<resources>
+    <!-- Big accent colored button for main controls -->
+    <style name="BigAccentButton" parent="Widget.MaterialComponents.Button">
+        <item name="android:backgroundTint">@color/accent</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="cornerRadius">12dp</item>
+        <item name="android:elevation">3dp</item>
+        <item name="android:minHeight">56dp</item>
+        <item name="android:paddingLeft">20dp</item>
+        <item name="android:paddingRight">20dp</item>
+    </style>
+</resources>
